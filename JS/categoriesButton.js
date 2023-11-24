@@ -11,7 +11,7 @@ function loadCategoriesButton(dataCategories){
     for(let dataCategory of dataCategories){
         let div = document.createElement("div");
         div.innerHTML=`
-            <button type="button" class="btn btn-primary" onclick="loadVideoFetch('${dataCategory.category_id}')">${dataCategory.category}</button>
+            <button type="button" class="btn btn-success" onclick="loadVideoFetch('${dataCategory.category_id}')">${dataCategory.category}</button>
         `;
         categoriesTitleContainer.appendChild(div);
     

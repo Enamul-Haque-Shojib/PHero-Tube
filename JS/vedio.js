@@ -13,7 +13,7 @@ function sortVideoFetch(){
 }
 
 function sortData(database){
-  loadVideo(database.sort((a,b) => a.others.views.slice(0, a.others.views.length-1)-b.others.views.slice(0, b.others.views.length-1)));
+  loadVideo(database.sort((a,b) => b.others.views.slice(0, b.others.views.length-1)-a.others.views.slice(0, a.others.views.length-1)));
   
 }
 
