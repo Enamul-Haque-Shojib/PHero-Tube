@@ -1,8 +1,20 @@
-
+let url=``;
 function loadVideoFetch(urlId){
-    fetch(`https://openapi.programming-hero.com/api/videos/category/${urlId}`)
+  url = `https://openapi.programming-hero.com/api/videos/category/${urlId}`
+    fetch(url)
     .then(res=>res.json())
     .then(data=>loadVideo(data.data));
+}
+
+function sortVideoFetch(){
+  fetch(url)
+    .then(res=>res.json())
+    .then(data=>sortData(data.data));
+}
+
+function sortData(database){
+  loadVideo(database.sort((a,b) => a.others.views.slice(0, a.others.views.length-1)-b.others.views.slice(0, b.others.views.length-1)));
+  
 }
 
 
@@ -16,7 +28,7 @@ function loadVideo(dataVideos){
   if(dataVideos.length==0){
     
     let div = document.createElement("div");
-    div.className = "container empty-page border";
+    div.className = "container empty-page";
     div.innerHTML=`
     <div class="empty-image">
       <img src="./image/Icon.png" alt="">

@@ -14,7 +14,7 @@ function loadCategoriesButton(dataCategories){
             <button type="button" class="btn btn-primary" onclick="loadVideoFetch('${dataCategory.category_id}')">${dataCategory.category}</button>
         `;
         categoriesTitleContainer.appendChild(div);
-        // console.log(dataCategory.category)
+    
     }
     
 }
