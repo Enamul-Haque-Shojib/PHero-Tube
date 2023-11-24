@@ -7,8 +7,27 @@ function loadVideoFetch(urlId){
 
 
 function loadVideo(dataVideos){
-    let videoContainer = document.getElementById("video-container");
-    videoContainer.innerHTML=``;
+  console.log(dataVideos.length)
+  let videoContainer = document.getElementById("video-container");
+  videoContainer.innerHTML=``;
+  let emptyContainer = document.getElementById("empty-container");
+  emptyContainer.innerHTML=``;
+
+  if(dataVideos.length==0){
+    
+    let div = document.createElement("div");
+    div.className = "container empty-page border";
+    div.innerHTML=`
+    <div class="empty-image">
+      <img src="./image/Icon.png" alt="">
+    </div>
+    <div class="empty-title">
+      <h3>Oops!! Sorry, There is no content here</h3>
+    </div>
+    `;
+    emptyContainer.appendChild(div);
+  }else{
+    
     let iconCount = 0;
     for(let dataVideo of dataVideos){
         let div = document.createElement("div");
@@ -63,20 +82,13 @@ function loadVideo(dataVideos){
 
         
         iconCount++;
-        // console.log(dataVideo.title,dataVideo.authors[0].verified)
+        
     }
-    // console.log(dataVideos);
+  }
+    
+    
    
 }
-
-const seconds = 16278;
-
-// ✅ get hh:mm:ss string
-const result = new Date(seconds * 1000)
-  .toISOString()
-  .slice(11, 19).split(":");
-  
-console.log(result[0]+"hrs "+result[1]+" min ago"); // 👉️ "00:10:00" (hh:mm:ss)
 
 
 
